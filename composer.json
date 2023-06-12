@@ -2,7 +2,7 @@
     "name": "jbtje/vtiger-laravel",
     "description": "A vtiger api wrapper",
     "license": "MIT",
-    "version": "v0.1.0",
+    "version": "v0.1.1",
     "require": {
         "php": "^7.4|^8.0",
         "ext-json": "*",
