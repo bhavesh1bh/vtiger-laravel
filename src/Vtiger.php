@@ -409,6 +409,31 @@ class Vtiger
 
         return $this->_processResponse( $response );
     }
+    
+    /**
+     * Update an entry in the database from the given object
+     *
+     * @param $object
+     *
+     * @return mixed
+     * @throws GuzzleException
+     */
+    public function revise($object){
+        $sessionId = $this->sessionId();
+
+        // send a request to update a record
+        $response = $this->guzzleClient->request( 'POST', $this->url, [
+            'form_params' => [
+                'operation'   => 'revise',
+                'sessionName' => $sessionId,
+                'element'     => json_encode( $object ),
+            ],
+        ] );
+
+        $this->close( $sessionId );
+
+        return $this->_processResponse( $response );
+    }
 
     /**
      * Delete from the database using the given id
